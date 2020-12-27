@@ -4,13 +4,15 @@ const colors = require("colors")
 const connectDB = require("./db/config/db")
 const cookieParser = require("cookie-parser");
 const errorHandler = require("./db/middleware/error");
+const fileUpload = require("express-fileupload");
+
 const app = express();
 
 // env file configuration
 dotenv.config({ path: './db/config/config.env' })
 //Body parser
 app.use(express.json());
-
+app.use(fileUpload())
 connectDB();
 // Routing
 const auth = require('./db/router/auth');

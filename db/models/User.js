@@ -42,7 +42,6 @@ UserSchema.pre("save", async function (next) {
 })
 
 UserSchema.methods.getJWTWebToken = function () {
-    console.log("return token")
     return jwt.sign({ id: this._id }, process.env.JWT_SECRET_TOKEN, { expiresIn: process.env.JWT_EXPIRES_IN })
 }
 

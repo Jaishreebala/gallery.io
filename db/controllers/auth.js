@@ -24,7 +24,6 @@ exports.login = asyncHandler(async (req, res, next) => {
     else {
         sendTokenResponse(user, 201, res);
     }
-    console.log(user);
 })
 const sendTokenResponse = (user, statusCode, res) => {
     const token = user.getJWTWebToken();
