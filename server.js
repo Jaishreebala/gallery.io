@@ -15,6 +15,8 @@ connectDB();
 // Routing
 const auth = require('./db/router/auth');
 app.use('/api/v1/auth', auth)
+const gallery = require('./db/router/gallery');
+app.use('/api/v1/photo', gallery);
 
 
 // Call error handler after routing
