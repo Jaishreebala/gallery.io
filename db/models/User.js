@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
-
+const Gallery = require("./Gallery")
 const UserSchema = new mongoose.Schema(
     {
         firstName: {
@@ -33,8 +33,18 @@ const UserSchema = new mongoose.Schema(
             type: Date,
             default: Date.now,
         }
-    }
+    }, {
+    toJSON: { virtuals: true },
+    toObject: { virtuals: true }
+}
 )
+// Adding virtuals so user can be populated later.
+UserSchema.virtual('images', {
+    ref: 'Gallery',
+    localField: '_id',
+    foreignField: 'user',
+    justOne: false
+})
 
 UserSchema.pre("save", async function (next) {
     const salt = await bcrypt.genSalt(10);

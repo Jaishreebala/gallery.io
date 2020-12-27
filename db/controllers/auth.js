@@ -25,6 +25,19 @@ exports.login = asyncHandler(async (req, res, next) => {
         sendTokenResponse(user, 201, res);
     }
 })
+
+exports.logout = asyncHandler(async (req, res, next) => {
+    res.cookie('token', 'none', {
+        expires: new Date(Date.now() + 10 * 1000),
+        httpOnly: true
+    })
+    res.status(200).json({ success: true, data: {} })
+})
+
+exports.getMe = asyncHandler(async (req, res, next) => {
+    const user = await User.findById(req.user._id).populate({ path: 'images', select: 'photo' });
+    res.status(200).json({ success: true, data: user })
+})
 const sendTokenResponse = (user, statusCode, res) => {
     const token = user.getJWTWebToken();
     let options = {
