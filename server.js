@@ -5,6 +5,10 @@ const connectDB = require("./db/config/db")
 const cookieParser = require("cookie-parser");
 const errorHandler = require("./db/middleware/error");
 const fileUpload = require("express-fileupload");
+const expressMongoSanitize = require("express-mongo-sanitize");
+const helmet = require("helmet");
+const xss = require("xss-clean");
+const hpp = require("hpp");
 
 const app = express();
 
@@ -12,7 +16,15 @@ const app = express();
 dotenv.config({ path: './db/config/config.env' })
 //Body parser
 app.use(express.json());
-app.use(fileUpload())
+app.use(fileUpload());
+// Preven t noSQL injections
+app.use(expressMongoSanitize());
+// Set headers for security
+app.use(helmet());
+// Prevent XSS atacks
+app.use(xss());
+// Prevent HPP
+app.use(hpp());
 connectDB();
 // Routing
 const auth = require('./db/router/auth');
