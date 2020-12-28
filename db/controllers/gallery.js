@@ -49,7 +49,7 @@ exports.deletePhoto = asyncHandler(async (req, res, next) => {
             console.log("Successfully deleted the image.")
         }
     })
-    await Gallery.findByIdAndDelete(req.params.id);
+    await photo.remove();
     res.status(200).json({ success: true, data: {} });
 })
 
