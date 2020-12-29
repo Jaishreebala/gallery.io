@@ -25,7 +25,7 @@ exports.uploadPhoto = asyncHandler(async (req, res, next) => {
             return next(new ErrorResponse(`Problem with image upload, try again`), 500)
         }
         await Gallery.findByIdAndUpdate(gallery._id, { photo: photo.name });
-        res.status(200).json({ success: true, data: photo.name })
+        res.status(200).json({ success: true, data: gallery })
     })
 
 })
@@ -54,7 +54,11 @@ exports.deletePhoto = asyncHandler(async (req, res, next) => {
 })
 
 exports.allPhotos = asyncHandler(async (req, res, next) => {
-    const photos = await Gallery.find();
+    let photos = await Gallery.find();
+    // Search By Tags 
+    if (req.query.tags) {
+        photos = await Gallery.find({ tags: { $regex: `.*${req.query.tags}.*`, $options: 'i' } })
+    }
     res.status(200).json({ success: true, data: photos });
 })
 

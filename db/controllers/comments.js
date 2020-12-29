@@ -11,10 +11,14 @@ exports.addRating = asyncHanlder(async (req, res, next) => {
     if (!photo) {
         return next(new ErrorResponse(`Image with ID ${req.params.id} Not Found`), 400)
     }
+    if (!req.body.comment && !req.body.rating) {
+        return next(new ErrorResponse(`Leave either a comment/rating to submit`), 400)
+    }
     console.log(photo.user.toString().blue)
     if (photo.user.toString() === req.user._id.toString()) {
         return next(new ErrorResponse(`You can't leave ratings on your own photos`), 400)
     }
+
     const rating = await Rating.create(req.body);
     res.status(201).json({ success: true, data: rating });
 })
@@ -26,8 +30,6 @@ exports.getCommentsOfPhoto = asyncHanlder(async (req, res, next) => {
 
 exports.updateComment = asyncHanlder(async (req, res, next) => {
     const comment = await Rating.findById(req.params.id);
-    // if(comment.)
-    // res.status(200).json({ success: true, data: photo });
     if (comment.user.toString() !== req.user._id.toString()) {
         return next(new ErrorResponse(`You can only edit your own comments`), 400)
     }

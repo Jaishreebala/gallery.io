@@ -12,8 +12,6 @@ exports.protect = asyncHandler(async (req, res, next) => {
     else if (req.cookies.token) {
         token = req.cookies.token;
     }
-
-
     if (!token) {
         return next(new ErrorResponse('Please login/register to perform this action', 401));
     }
