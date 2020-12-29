@@ -16,7 +16,7 @@ exports.uploadPhoto = asyncHandler(async (req, res, next) => {
     if (photo.size > process.env.IMAGE_MAX_SIZE) {
         return next(new ErrorResponse(`Image file size should be less than ${process.env.IMAGE_MAX_SIZE / 1000}KB`), 400)
     }
-    const gallery = await Gallery.create({ user: req.user._id });
+    const gallery = await Gallery.create({ user: req.user._id, description: req.body.description, tags: req.body.tags });
     photo.name = `image_${gallery._id}${path.parse(photo.name).ext}`;
     photo.mv(`.${process.env.IMAGE_UPLOAD_PATH}/${photo.name}`, async err => {
         if (err) {

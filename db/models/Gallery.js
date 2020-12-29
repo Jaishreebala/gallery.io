@@ -7,6 +7,15 @@ const GallerySchema = new mongoose.Schema({
     averageRating: {
         type: Number
     },
+    description: {
+        type: String,
+        required: [true, 'Please add a short relevant description.'],
+        maxlength: [500, 'Description has a limit of 500 characters']
+    },
+    tags: {
+        type: String,
+        required: [true, 'Please add atleast one tag.']
+    },
     user: {
         type: mongoose.Schema.ObjectId,
         ref: 'User'
