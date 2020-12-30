@@ -1,0 +1,25 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-size: 100%;
+    font-family: 'Open Sans', sans-serif;
+}
+a{
+    text-decoration: none;
+    color: inherit;
+}
+.error{
+    color: #E84E4F;
+}
+button, input, textarea{
+    border: none;
+    outline: none;
+    border: none;
+    background-color: transparent;
+    font-size: inherit;
+}
+
+
+@import "./nav";
+@import "./login";
