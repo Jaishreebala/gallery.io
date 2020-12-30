@@ -25,6 +25,7 @@ function Login({ isLoggedIn, setIsLoggedIn }) {
             if (data.success) {
                 setErrors("");
                 setIsLoggedIn(true);
+                localStorage.setItem('token', data.token)
             }
             else {
                 setIsLoggedIn(false);

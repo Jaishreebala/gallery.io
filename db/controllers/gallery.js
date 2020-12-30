@@ -54,21 +54,21 @@ exports.deletePhoto = asyncHandler(async (req, res, next) => {
 })
 
 exports.allPhotos = asyncHandler(async (req, res, next) => {
-    let photos = await Gallery.find();
+    let photos = await Gallery.find().populate({ path: 'user', select: 'firstName lastName' }).sort('-_id');
     // Search By Tags 
     if (req.query.tags) {
-        photos = await Gallery.find({ tags: { $regex: `.*${req.query.tags}.*`, $options: 'i' } })
+        photos = await Gallery.find({ tags: { $regex: `.*${req.query.tags}.*`, $options: 'i' } }).populate({ path: 'user', select: 'firstName lastName' }).sort('-_id');
     }
     res.status(200).json({ success: true, data: photos });
 })
 
 
 exports.getPhotosOfUser = asyncHandler(async (req, res, next) => {
-    const user = await User.findById(req.params.id).populate('images');
+    const user = await User.findById(req.params.id).populate({ path: 'images', options: { sort: { '_id': -1 } } });
     if (!user) {
         return next(new ErrorResponse(`User with ID ${req.params.id} Not Found`), 400)
     }
-    res.status(200).json({ success: true, data: user.images });
+    res.status(200).json({ success: true, data: user });
 })
 
 exports.getPhoto = asyncHandler(async (req, res, next) => {

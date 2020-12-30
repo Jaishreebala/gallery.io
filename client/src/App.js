@@ -5,6 +5,7 @@ import Nav from './components/Nav';
 import Login from './pages/Login'
 import Register from './pages/Register'
 import Feed from './pages/Feed'
+import UserFeed from './pages/UserFeed'
 
 function App() {
   const location = useLocation();
@@ -22,6 +23,9 @@ function App() {
         </Route>
         <Route path="/feed" exact>
           <Feed isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
+        </Route>
+        <Route path="/feed/:id" exact>
+          <UserFeed isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
         </Route>
       </Switch>
     </div>

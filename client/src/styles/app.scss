@@ -20,6 +20,23 @@ button, input, textarea{
     font-size: inherit;
 }
 
-
+.feed{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.heading{
+    display: flex;
+    font-size: 1.5rem;
+    margin: auto;
+    width: 90%;
+    font-weight: 300;
+    h1{
+        font-weight: 400;
+        color: #8BB43F;
+        padding-left: 1rem;
+    }
+}
 @import "./nav";
 @import "./login";
+@import "./imageCard";
