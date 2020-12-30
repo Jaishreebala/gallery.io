@@ -20,7 +20,7 @@ function UserImageCard({ id, photo, description, tags, rating }) {
         <div className="imageCard">
             <div className="card-desc">
                 <div className="star"> {starRenderer()}</div>
-                <a href={`${process.env.PUBLIC_URL}/uploadedImages/${photo}`} target="_blank">Download</a>
+                <a href={`${process.env.PUBLIC_URL}/uploadedImages/${photo}`} download>Download</a>
             </div>
             <img src={`${process.env.PUBLIC_URL}/uploadedImages/${photo}`} alt="Image" />
         </div>

@@ -72,7 +72,7 @@ exports.getPhotosOfUser = asyncHandler(async (req, res, next) => {
 })
 
 exports.getPhoto = asyncHandler(async (req, res, next) => {
-    const photo = await Gallery.findById(req.params.id);
+    const photo = await Gallery.findById(req.params.id).populate("comments");
     if (!photo) {
         return next(new ErrorResponse(`Image with ID ${req.params.id} Not Found`), 400)
     }
