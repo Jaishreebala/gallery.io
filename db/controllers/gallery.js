@@ -72,7 +72,12 @@ exports.getPhotosOfUser = asyncHandler(async (req, res, next) => {
 })
 
 exports.getPhoto = asyncHandler(async (req, res, next) => {
-    const photo = await Gallery.findById(req.params.id).populate("comments");
+    const photo = await Gallery.findById(req.params.id).populate({
+        path: "comments", populate: {
+            path: 'user',
+            select: 'firstName lastName'
+        }
+    }).populate({ path: 'user', select: 'firstName lastName' });
     if (!photo) {
         return next(new ErrorResponse(`Image with ID ${req.params.id} Not Found`), 400)
     }

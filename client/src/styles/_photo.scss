@@ -1,0 +1,85 @@
+.photo{
+    width: 80%;
+    margin: auto;
+    position: relative;
+    img{
+        width: 75%;
+        height: calc(100vh - 90px);
+        object-fit: cover;
+    }
+
+    .menu{
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 25%;
+        padding-left: 1rem;
+        overflow: scroll;
+        text-align: justify;
+        font-size: 1.25rem;
+        h1{
+            border-bottom: solid 1px #000;
+        }
+        .desc{
+            padding-bottom: 0.75rem;
+        }
+        .user{
+            padding-bottom: 0.75rem;
+            color: #333;
+        }
+        a{
+            padding-bottom: 0.75rem;
+        }
+        .star{
+            padding-bottom: 0.75rem;
+            img{
+                height: 1.25rem;
+                width: 1.25rem;
+            }
+        }
+        .comment{
+            text-align: justify;
+            border-bottom: solid 1px #ccc;
+            .commentName{
+                font-size: 1rem;
+                color: #333;
+            }
+            .commentDesc{
+                font-size: 1.25rem;
+            }
+            
+        }
+        a{
+            color: #999;
+        }
+    }
+}
+.userInputSection{
+    position: relative;
+    .borderInput{
+        width: 100%;
+        border-radius: 1rem;
+        border: solid 1px #ccc;
+        color: #333;
+        padding: 0.25rem 0.5rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin: 0.25rem 0;
+        
+        input{
+            width: 70%;
+            color: #333;
+        }
+        div{
+            color: #333;
+            cursor: pointer;
+        }
+    }
+    .inputRating{
+        img{
+            height: 1.25rem;
+            width: 1.25rem;
+        }
+    }
+}

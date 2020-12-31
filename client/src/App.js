@@ -28,7 +28,7 @@ function App() {
         <Route path="/feed/:id" exact>
           <UserFeed isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
         </Route>
-        <Route path="/photo" exact>
+        <Route path="/photo/:id" exact>
           <Photo isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
         </Route>
       </Switch>
