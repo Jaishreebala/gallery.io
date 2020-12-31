@@ -6,6 +6,11 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    h1{
+        font-size: 1.5rem;
+        color: #8BB43F;
+        font-weight: 400;
+    }
     .searchInput{
         color: #ccc;
         position: relative;

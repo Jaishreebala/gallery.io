@@ -1,7 +1,7 @@
 import React, { useState, useRef } from 'react'
 import ImageUploader from "react-images-upload";
 import Error from '../components/Error';
-import { useHistory } from 'react-router-dom'
+import { useHistory, Link } from 'react-router-dom'
 
 
 
@@ -64,6 +64,7 @@ function Post({ isLoggedIn }) {
     }
     return (
         <div className="post">
+            <h1> <Link to={`/profile`}> View My Profile</Link></h1>
             <Error error={errors} />
             <ImageUploader
                 name="photo"

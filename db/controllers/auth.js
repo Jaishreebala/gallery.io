@@ -36,7 +36,11 @@ exports.logout = asyncHandler(async (req, res, next) => {
 
 exports.getMe = asyncHandler(async (req, res, next) => {
 
-    const user = await User.findById(req.user._id).populate({ path: 'images', select: 'photo' });
+    const user = await User.findById(req.user._id).populate({
+        path: 'images', select: 'photo averageRating', populate: {
+            path: 'comments',
+        }, options: { sort: { '_id': -1 } }
+    });
     res.status(200).json({ success: true, data: user })
 })
 const sendTokenResponse = (user, statusCode, res) => {

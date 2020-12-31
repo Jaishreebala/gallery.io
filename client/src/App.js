@@ -8,6 +8,7 @@ import Feed from './pages/Feed'
 import UserFeed from './pages/UserFeed'
 import Photo from './pages/Photo'
 import Post from './pages/Post'
+import Profile from './pages/Profile'
 
 function App() {
   const location = useLocation();
@@ -17,6 +18,9 @@ function App() {
     <div className="App">
       <Nav isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
       <Switch location={location} key={location.pathname}>
+        <Route path="/" exact>
+          <Register isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
+        </Route>
         <Route path="/login" exact>
           <Login isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
         </Route>
@@ -34,6 +38,9 @@ function App() {
         </Route>
         <Route path="/post" exact>
           <Post isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
+        </Route>
+        <Route path="/profile" exact>
+          <Profile isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
         </Route>
       </Switch>
     </div>
