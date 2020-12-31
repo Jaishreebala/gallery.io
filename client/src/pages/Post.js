@@ -16,7 +16,7 @@ function Post() {
                 name="file"
                 withIcon={true}
                 onChange={onDrop}
-                imgExtension={[".jpg", ".gif", ".png", ".gif", ".svg"]}
+                imgExtension={[".jpg", ".gif", ".png", ".svg"]}
                 maxFileSize={5242880}
                 withPreview={true}
                 singleImage={true}
