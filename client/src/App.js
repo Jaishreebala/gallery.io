@@ -7,6 +7,7 @@ import Register from './pages/Register'
 import Feed from './pages/Feed'
 import UserFeed from './pages/UserFeed'
 import Photo from './pages/Photo'
+import Post from './pages/Post'
 
 function App() {
   const location = useLocation();
@@ -30,6 +31,9 @@ function App() {
         </Route>
         <Route path="/photo/:id" exact>
           <Photo isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
+        </Route>
+        <Route path="/post" exact>
+          <Post isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
         </Route>
       </Switch>
     </div>

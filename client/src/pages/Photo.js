@@ -13,6 +13,7 @@ function Photo({ isLoggedIn }) {
     const [rerender, setRerender] = useState(false)
     const [errors, setErrors] = useState("");
     const [query, setQuery] = useState(`/api/v1/photo/${id}`);
+
     const bearer = `Bearer ${localStorage.getItem('token')}`
     const commentRef = useRef();
     useEffect(() => {
@@ -125,6 +126,7 @@ function Photo({ isLoggedIn }) {
         <>
             {photoData.user &&
                 <div className="photo">
+
                     <img src={`${process.env.PUBLIC_URL}/uploadedImages/${photoData.photo}`} alt="Image" />
                     <div className="menu">
                         <div className="desc"> {photoData.description} </div>
