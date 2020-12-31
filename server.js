@@ -38,11 +38,12 @@ app.use('/api/v1/comments', comments);
 
 // Call error handler after routing
 app.use(errorHandler);
-
+console.log(__dirname + '/client/build/index.html')
 const PORT = process.env.PORT || 5000;
-app.use(express.static(path.join(__dirname, './client/build')));// Handle React routing, return all requests to React app
-app.get('*', function (req, res) {
-    res.sendFile(__dirname + '/client/build/index.html');
-});
-
+if (process.env.NODE_ENV === 'production') {
+    app.use(express.static(path.join(__dirname, './client/build')));// Handle React routing, return all requests to React app
+    app.get('*', function (req, res) {
+        res.sendFile(__dirname + '/client/build/index.html');
+    });
+}
 app.listen(PORT, console.log(`Server Up And Running On Port ${PORT}`.blue.bold));
