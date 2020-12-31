@@ -6,9 +6,11 @@ function Profile({ isLoggedIn }) {
 
     const [photosData, setPhotosData] = useState([]);
     const [query, setQuery] = useState(`api/v1/auth/getMe`);
+    const [rerender, setRerender] = useState(false)
+
     useEffect(() => {
         getPhotos();
-    }, [query])
+    }, [query, rerender])
     const bearer = `Bearer ${localStorage.getItem('token')}`
     const getPhotos = async () => {
         try {
@@ -36,7 +38,7 @@ function Profile({ isLoggedIn }) {
                 <div className="feed">
                     {!isLoggedIn ? <Redirect to="/login" /> : ""}
                     {
-                        photosData.images.map(photoData => { return <ImageCard key={photoData._id} id={photoData._id} photo={photoData.photo} rating={photoData.averageRating} /> })
+                        photosData.images.map(photoData => { return <ImageCard key={photoData._id} id={photoData._id} isLoggedIn={isLoggedIn} photo={photoData.photo} rating={photoData.averageRating} rerender={rerender} setRerender={setRerender} /> })
                     }
                 </div>
             </div>}
