@@ -15,6 +15,8 @@ const app = express();
 
 // env file configuration
 dotenv.config({ path: './db/config/config.env' })
+app.use(cookieParser());
+
 //Body parser
 app.use(express.json());
 app.use(fileUpload());
@@ -38,7 +40,6 @@ app.use('/api/v1/comments', comments);
 
 // Call error handler after routing
 app.use(errorHandler);
-console.log(__dirname + '/client/build/index.html')
 const PORT = process.env.PORT || 5000;
 // if (process.env.NODE_ENV === 'production') {
 app.use(express.static(path.join(__dirname, './client/build')));// Handle React routing, return all requests to React app
