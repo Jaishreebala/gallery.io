@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react'
 import { useParams } from 'react-router';
 import emptyStar from '../images/empty_star.svg';
 import filledStar from '../images/filled_star.svg';
-import { useHistory } from 'react-router-dom'
+import { useHistory, Redirect } from 'react-router-dom'
 import Error from '../components/Error';
 
 function Photo({ isLoggedIn }) {
@@ -126,7 +126,7 @@ function Photo({ isLoggedIn }) {
         <>
             {photoData.user &&
                 <div className="photo">
-
+                    {!isLoggedIn ? <Redirect to="/login" /> : ""}
                     <img src={`${process.env.PUBLIC_URL}/uploadedImages/${photoData.photo}`} alt="Image" />
                     <div className="menu">
                         <div className="desc"> {photoData.description} </div>
