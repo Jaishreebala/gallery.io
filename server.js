@@ -9,6 +9,7 @@ const expressMongoSanitize = require("express-mongo-sanitize");
 const helmet = require("helmet");
 const xss = require("xss-clean");
 const hpp = require("hpp");
+const path = require("path");
 
 const app = express();
 
