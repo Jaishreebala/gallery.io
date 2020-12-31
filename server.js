@@ -23,11 +23,11 @@ app.use(fileUpload());
 // Preven t noSQL injections
 app.use(expressMongoSanitize());
 // Set headers for security
-app.use(helmet());
+// app.use(helmet());
 // Prevent XSS atacks
 app.use(xss());
 // Prevent HPP
-app.use(hpp());
+// app.use(hpp());
 connectDB();
 // Routing
 const auth = require('./db/router/auth');
