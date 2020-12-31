@@ -18,7 +18,7 @@ exports.uploadPhoto = asyncHandler(async (req, res, next) => {
     }
     const gallery = await Gallery.create({ user: req.user._id, description: req.body.description, tags: req.body.tags });
     photo.name = `image_${gallery._id}${path.parse(photo.name).ext}`;
-    photo.mv(`.${process.env.IMAGE_UPLOAD_PATH}/${photo.name}`, async err => {
+    photo.mv(`${__dirname}${process.env.IMAGE_UPLOAD_PATH}/${photo.name}`, async err => {
         if (err) {
             console.log(err);
             await Gallery.findByIdAndDelete(gallery._id);
