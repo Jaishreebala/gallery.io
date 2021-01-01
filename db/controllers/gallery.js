@@ -42,7 +42,7 @@ exports.deletePhoto = asyncHandler(async (req, res, next) => {
     const imagepath = `${__dirname}${process.env.IMAGE_UPLOAD_PATH}/${photo.photo}`;
     fs.unlink(imagepath, function (err) {
         if (err) {
-            next();
+            return next(new ErrorResponse(`Problem with delete, try again.`), 400)
             throw err;
 
         } else {

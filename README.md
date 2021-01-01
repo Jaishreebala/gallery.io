@@ -1,34 +1,36 @@
 # gallery.io
 
-
-
-## Project Specs
----
-
 ## Login, Security Features
 
 - Login
 - Register
 - Logout
 - Auth using JWT and Cookies
-- Forgot password to Reset Password
 
-## Add Image
+## Upload Image
 
-- Image upload
-- Image title
-- Image tags
+- *Secure* image upload to the file directory
+- File type validated before upload for security reasons.
+- Image size can be a maximum of 5MB.
+- Image has description & tags.
 
 ## Delete
 
-- Image Delete
+- Image Deletion
 - Images can only be deleted by the creator of the image
+
+## View  Images
+
+- Only logged in users can view images
+- View pictures uploaded by a user
+- *Search* for images by tags.
 
 ## Comments / Reviews
 
-- Anyone can leave comments
-    - Filter out vulgar language
-- Ratings - the creator can not leave a rating.
+- Users can not leave ratings/comments on their own image.
+- Aggregate all ratings on a picture to get total rating.
+- Filter out vulgar language in the comments.
+
 
 ## Dashboard
 
