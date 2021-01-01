@@ -1,5 +1,7 @@
 # gallery.io
 
+> Please excuse the quality of the videos, something must have gone wrong in the video conversion process :/
+
 ## Login, Security Features
 
 - Login
