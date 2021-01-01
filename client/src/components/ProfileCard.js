@@ -32,12 +32,13 @@ function ProfileCard({ id, photo, rating, isLoggedIn, rerender, setRerender, des
                     }
                 })
                 const data = await response.json();
+                setRerender(!rerender);
                 if (data.success) {
-                    setRerender(!rerender);
                     console.log("success")
                 }
 
             } catch (err) {
+                setRerender(!rerender);
                 console.log(err);
             }
         }
