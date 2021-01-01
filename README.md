@@ -5,7 +5,9 @@
 ## Login, Security Features
 
 - Login
+
 ![Login](./assets/login.gif)
+
 - Register
 - Logout
 - Auth using JWT and Cookies
