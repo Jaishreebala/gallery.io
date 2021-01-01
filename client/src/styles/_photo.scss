@@ -17,15 +17,16 @@
         overflow: scroll;
         text-align: justify;
         font-size: 1.25rem;
+        color: #fff;
         h1{
-            border-bottom: solid 1px #000;
+            border-bottom: solid 1px #ccc;
         }
         .desc{
             padding-bottom: 0.75rem;
         }
         .user{
             padding-bottom: 0.75rem;
-            color: #333;
+            color: #ccc;
         }
         a{
             padding-bottom: 0.75rem;
@@ -42,7 +43,7 @@
             border-bottom: solid 1px #ccc;
             .commentName{
                 font-size: 1rem;
-                color: #333;
+                color: #ccc;
             }
             .commentDesc{
                 font-size: 1.25rem;
@@ -69,10 +70,10 @@
         
         input{
             width: 70%;
-            color: #333;
+            color: #fff;
         }
         div{
-            color: #333;
+            color: #ccc;
             cursor: pointer;
         }
     }

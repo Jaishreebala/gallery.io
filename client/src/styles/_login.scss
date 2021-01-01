@@ -5,7 +5,7 @@
     align-items: center;
     --formelement-height: 70px;
     --keyColor: #8BB43F;
-    text-align: center;
+    text-align: center; 
     color: #8BB43F;
     h1{
         font-size: 2rem;
@@ -19,7 +19,7 @@
         padding: 3rem;
     }
     .searchInput{
-        color: #8BB43F;
+        color: #8bb43f;
         position: relative;
         overflow: hidden;
         height: var(--formelement-height);
@@ -27,7 +27,7 @@
     .searchInput input {
         width: 100%;
         height: 100%;
-        color: #8BB43F;
+        color: #fff!important;
         padding-top: 20px;
         border: none;
         outline: none;

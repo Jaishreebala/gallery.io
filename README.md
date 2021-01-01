@@ -46,4 +46,4 @@
 
 - Loads pictures by created time
 - Search by tags
-- Pagination, filtering
+- Pagination, filtering 

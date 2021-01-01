@@ -6,6 +6,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    // color: #fff;
     h1{
         font-size: 1.5rem;
         color: #8BB43F;
@@ -21,7 +22,7 @@
     .searchInput input {
         width: 100%;
         height: 100%;
-        color: #8BB43F;
+        color: #ccc;
         padding-top: 20px;
         border: none;
         outline: none;
@@ -35,6 +36,7 @@
         width: 100%;
         height: 100%;
         pointer-events: none;
+        color: #ccc;
         border-bottom: #ccc 1px solid;
     }
     .searchInput label::after {
@@ -89,6 +91,7 @@
         resize:none;
         width: 100%!important;
         height: 100%!important;
+        color: #fff;
     }
     .textarea:focus-within{
         border-color: #8BB43F;
