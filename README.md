@@ -24,16 +24,20 @@
 ## Delete
 
 - Image Deletion
-![Delete](./assets/Delete-image.gif)
+![Delete](./assets/delete.gif)
 - Images can only be deleted by the creator of the image
 
 ## View  Images
 
 - Only logged in users can view images
-![View All](./assets/viewall.png)
+![View All](./assets/feed.png)
 
 - View pictures uploaded by a user
-![View Profile](./assets/viewprofile.png)
+- View profile (images uploaded by the logged in user)
+![View Profile](./assets/profilefeed.png)
+
+- View A Specific Image and it's comments & ratings
+![View Profile](./assets/imageview.png)
 
 - **Search** for images by tags.
 
