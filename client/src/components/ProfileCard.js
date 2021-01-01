@@ -3,7 +3,7 @@ import { Link, useHistory } from 'react-router-dom'
 import emptyStar from '../images/empty_star.svg';
 import filledStar from '../images/filled_star.svg';
 
-function ProfileCard({ id, photo, rating, isLoggedIn, rerender, setRerender }) {
+function ProfileCard({ id, photo, rating, isLoggedIn, rerender, setRerender, description }) {
     const history = useHistory()
 
     const bearer = `Bearer ${localStorage.getItem('token')}`
@@ -52,6 +52,7 @@ function ProfileCard({ id, photo, rating, isLoggedIn, rerender, setRerender }) {
                 <div className="star"> {starRenderer()}</div>
             </div>
             <Link to={`/photo/${id}`}><img src={`${process.env.PUBLIC_URL}/uploadedImages/${photo}`} alt="Image" /></Link>
+            <div className="description"> {description}</div>
         </div>
     )
 }

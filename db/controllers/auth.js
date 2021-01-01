@@ -37,7 +37,7 @@ exports.logout = asyncHandler(async (req, res, next) => {
 exports.getMe = asyncHandler(async (req, res, next) => {
 
     const user = await User.findById(req.user._id).populate({
-        path: 'images', select: 'photo averageRating', populate: {
+        path: 'images', select: 'photo description averageRating', populate: {
             path: 'comments',
         }, options: { sort: { '_id': -1 } }
     });

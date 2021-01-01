@@ -38,7 +38,7 @@ function Profile({ isLoggedIn }) {
                 <div className="feed">
                     {!isLoggedIn ? <Redirect to="/login" /> : ""}
                     {
-                        photosData.images.map(photoData => { return <ImageCard key={photoData._id} id={photoData._id} isLoggedIn={isLoggedIn} photo={photoData.photo} rating={photoData.averageRating} rerender={rerender} setRerender={setRerender} /> })
+                        photosData.images.map(photoData => { return <ImageCard key={photoData._id} id={photoData._id} isLoggedIn={isLoggedIn} photo={photoData.photo} description={photoData.description} rating={photoData.averageRating} rerender={rerender} setRerender={setRerender} /> })
                     }
                 </div>
             </div>}

@@ -23,6 +23,7 @@ function UserImageCard({ id, photo, description, tags, rating }) {
                 <a href={`${process.env.PUBLIC_URL}/uploadedImages/${photo}`} download>Download</a>
             </div>
             <img src={`${process.env.PUBLIC_URL}/uploadedImages/${photo}`} alt="Image" />
+            <div className="description"> {description}</div>
         </div>
     )
 }
