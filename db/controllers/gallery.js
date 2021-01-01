@@ -39,7 +39,7 @@ exports.deletePhoto = asyncHandler(async (req, res, next) => {
     if (photo.user.toString() !== req.user._id.toString()) {
         return next(new ErrorResponse(`You can only delete the images you uploaded.`), 400)
     }
-    const imagepath = `.${process.env.IMAGE_UPLOAD_PATH}/${photo.photo}`;
+    const imagepath = `${__dirname}${process.env.IMAGE_UPLOAD_PATH}/${photo.photo}`;
     fs.unlink(imagepath, function (err) {
         if (err) {
             next();

@@ -23,6 +23,7 @@ function Imagecard({ id, photographer, photo, description, tags, rating, photogr
                 <div className="star"> {starRenderer()}</div>
             </div>
             <Link to={`/photo/${id}`}><img src={`${process.env.PUBLIC_URL}/uploadedImages/${photo}`} alt="Image" /></Link>
+            <div className="description"> {description}</div>
         </div>
     )
 }

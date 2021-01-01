@@ -17,6 +17,7 @@ function LoggedIn({ location, isLoggedIn, setIsLoggedIn }) {
         <ul>
             <li className={location.pathname === "/feed" ? "selected" : ""}><Link to="/feed">Feed</Link></li>
             <li className={location.pathname === "/post" ? "selected" : ""}><Link to="/post">Post</Link></li>
+            <li className={location.pathname === "/profile" ? "selected" : ""}><Link to="/profile">My Profile</Link></li>
             <li className={location.pathname === "/logout" ? "selected" : ""} onClick={logOutHandler}>Logout</li>
         </ul>
     )

@@ -3,6 +3,9 @@ const asyncHanlder = require("../middleware/async");
 const User = require("../models/User");
 const Gallery = require("../models/Gallery");
 const ErrorResponse = require("../utils/errorResponse");
+const Filter = require('bad-words');
+
+filter = new Filter();
 
 exports.addRating = asyncHanlder(async (req, res, next) => {
     req.body.user = req.user.id;
@@ -19,6 +22,12 @@ exports.addRating = asyncHanlder(async (req, res, next) => {
         return next(new ErrorResponse(`You can't leave ratings on your own photos`), 400)
     }
 
+    if (req.body.comment) {
+        if (filter.isProfane(req.body.comment)) {
+            return next(new ErrorResponse(`Please refrain from obscene language.`), 400)
+        }
+        req.body.comment = filter.clean(req.body.comment);
+    }
     const rating = await Rating.create(req.body);
     res.status(201).json({ success: true, data: rating });
 })
