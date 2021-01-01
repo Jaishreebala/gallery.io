@@ -6,7 +6,7 @@
 
 - Login
 
-![Login](./assets/login.gif)
+    ![Login](./assets/login.gif)
 
 - Register
 - Logout
