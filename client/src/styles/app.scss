@@ -51,7 +51,42 @@ button, input, textarea{
     margin: 1rem;;
     cursor: pointer;
 }
+.btn-cnt{
+    display: flex;
+    justify-content: center;
+    .more-button{
+        // border-radius: ;
+        color: #fff;
+        border: solid 1px #fff;
+        border-radius: 0.25rem;
+        padding: 0.5rem 1rem;
+        margin: 1rem 0;
+        background-color: transparent;
+        transition: 0.5s;
+        cursor: pointer;
 
+       
+
+        &:hover{
+            background-color: #8BB43F;
+            color: #fff;
+            border: solid 1px #8BB43F;
+        }
+       
+    }
+    .noclick-btn{
+        color: #aaa;
+        border: solid 1px #aaa;
+        border-radius: 0.25rem;
+        padding: 0.5rem 1rem;
+        margin: 1rem 0;
+        &:hover{
+            background-color: transparent!important;
+            color: #aaa;
+            border: solid 1px #aaa;
+        }
+    }
+}
 @import "./nav";
 @import "./login";
 @import "./imageCard";

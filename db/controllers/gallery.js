@@ -52,12 +52,32 @@ exports.deletePhoto = asyncHandler(async (req, res, next) => {
 })
 
 exports.allPhotos = asyncHandler(async (req, res, next) => {
-    let photos = await Gallery.find().populate({ path: 'user', select: 'firstName lastName' }).sort('-_id');
+    let photos = Gallery.find().populate({ path: 'user', select: 'firstName lastName' }).sort('-_id');
     // Search By Tags 
     if (req.query.tags) {
-        photos = await Gallery.find({ tags: { $regex: `.*${req.query.tags}.*`, $options: 'i' } }).populate({ path: 'user', select: 'firstName lastName' }).sort('-_id');
+        photos = Gallery.find({ tags: { $regex: `.*${req.query.tags}.*`, $options: 'i' } }).populate({ path: 'user', select: 'firstName lastName' }).sort('-_id');
     }
-    res.status(200).json({ success: true, data: photos });
+    let page = parseInt(req.query.page, 10) || 1;
+    let limit = parseInt(req.query.limit, 10) || 10;
+    let totalResults = await Gallery.countDocuments();
+    let pagination = {};
+    let startIndex = (page - 1) * limit;
+    let endIndex = page * limit;
+    if (endIndex < totalResults) {
+        pagination.next = {
+            page: page + 1,
+            limit
+        }
+    }
+    if (startIndex > 0) {
+        pagination.prev = {
+            page: page - 1,
+            limit
+        }
+    }
+    photos = photos.skip(startIndex).limit(limit);
+    const results = await photos;
+    res.status(200).json({ success: true, data: results, count: results.length, pagination, });
 })
 
 
