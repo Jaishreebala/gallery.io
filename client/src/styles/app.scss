@@ -87,6 +87,32 @@ button, input, textarea{
         }
     }
 }
+.border-input{
+    display: flex;
+    justify-content: center;
+    input{
+        // color: #fff;
+        // padding: 0.25rem 0.5rem;
+        // border-radius: 0.5rem;
+        // border: 1px solid #fff;
+        font-size: 1rem;
+        padding: 0.5rem;
+        // width: 100%;
+        border: none;
+        border: solid 2px rgb(33, 122, 131);
+        // border: solid 2px #8BB43F;
+        outline: none;
+        color: #fff;
+    }
+    button{
+        border: none;
+        padding: 0.5rem;
+        background-color: rgb(33, 122, 131);
+        color: white;
+        font-size: 1rem;
+        font-family: "raleway", sans-serif;
+    }
+}
 @import "./nav";
 @import "./login";
 @import "./imageCard";

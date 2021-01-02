@@ -1,10 +1,11 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import { Redirect } from 'react-router-dom'
 import ImageCard from '../components/Imagecard'
 function Feed({ isLoggedIn }) {
     const [photosData, setPhotosData] = useState([]);
     const [query, setQuery] = useState(`api/v1/photo`);
     const [pagination, setPagination] = useState();
+    const searchRef = useRef();
     let moreNumber = 1;
     useEffect(() => {
         getPhotos();
@@ -34,32 +35,30 @@ function Feed({ isLoggedIn }) {
     const moreHandler = async () => {
         if (pagination.next) {
             moreNumber++;
-            setQuery(`api/v1/photo?limit=${pagination.next.limit * moreNumber}`)
+            if (searchRef.current.value.length > 0) {
+                setQuery(`/api/v1/photo?tags=${searchRef.current.value}&limit=${pagination.next.limit * moreNumber}`)
+            }
+            else {
+                setQuery(`api/v1/photo?limit=${pagination.next.limit * moreNumber}`)
+            }
         }
-        // try {
-        //     const response = await fetch(`api/v1/photo?page=${page}`, {
-        //         method: 'GET',
-        //         withCredentials: true,
-        //         credentials: 'include',
-        //         headers: {
-        //             'Authorization': bearer,
-        //             'Content-Type': 'application/json'
-        //         }
-        //     })
-        //     const data = await response.json();
-        //     setPhotosData(data.data);
-        //     console.log(data)
-        // } catch (err) {
-        //     console.log(err)
-        // }
 
+    }
+    const searchImagesHandler = async () => {
+        console.log(searchRef.current.value)
+        setQuery(`/api/v1/photo?tags=${searchRef.current.value}`)
     }
     return (
         <>
             {pagination &&
                 <div>
+                    <div className="border-input">
+                        <input ref={searchRef} type="text" name="search" placeholder="Search" />
+                        <button type="submit" class="submit-btn" onClick={searchImagesHandler}>Search</button>
+                    </div>
                     <div className="feed">
                         {!isLoggedIn ? <Redirect to="/login" /> : ""}
+
                         {
                             photosData.map(photoData => { return <ImageCard key={photoData._id} id={photoData._id} photographerId={photoData.user._id} photographer={`${photoData.user.firstName} ${photoData.user.lastName}`} photo={photoData.photo} description={photoData.description} tags={photoData.workType} rating={photoData.averageRating} /> })
                         }
