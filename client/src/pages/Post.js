@@ -72,7 +72,7 @@ function Post({ isLoggedIn }) {
                 className="photo"
                 withIcon={true}
                 onChange={onDrop}
-                imgExtension={[".jpg", ".gif", ".png", ".svg"]}
+                imgExtension={[".jpg", ".gif", ".png", ".svg", ".jpeg"]}
                 maxFileSize={5242880}
                 withPreview={true}
                 singleImage={true}
