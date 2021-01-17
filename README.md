@@ -3,8 +3,10 @@
 Website Link: https://gallerydotio.herokuapp.com/
 
 galleryio is an image repository where users can upload image's pictures securely, delete their pictures, view the uploaded pictures (ordered by most recent uploads), view a user's uploads, view your profile (logged in user's profile) & uploads, leave comments or ratings on pictures.
+> *PS:* To view the website you need to log in to the system. You could use the demo credentials to login: username: demogalleryio@gmail.com, password: passw0rd, or register! :)
+    
 
-> *Note:* Please excuse the quality of the videos, something must have gone wrong in the video conversion process :/
+> *PPS:* Please excuse the quality of the videos, something must have gone wrong in the video conversion process :/
 
 --- 
 
